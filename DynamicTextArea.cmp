@@ -1,0 +1,20 @@
+<aura:component>
+
+  <aura:attribute name="value" type="String" />
+  <aura:attribute name="class" type="String" />
+  <aura:attribute name="readonly" type="Boolean" />
+  <aura:attribute name="rendered" type="Boolean" default="false" />
+  <aura:attribute name="storedTimer" type="Object" description="storing a timer allows it to be cancelled" access="private" />
+
+  <aura:method name="focus" action="{!c.focus}"/>
+  <aura:method name="recalculateHeight" action="{!c.recalculateHeight}"/>
+  <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+
+  <aura:registerEvent name="onfocus" type="c:ComponentEvent" />
+  <aura:registerEvent name="onclick" type="c:ComponentEvent" />
+
+  <textarea aura:id="simpletextarea" value="{!v.value}" id="{!GlobalId + '-textarea'}" readonly="{!v.readonly}" tabindex="0" 
+             onfocus="{!c.handleOnFocus}" onclick="{!c.handleOnClick}" oninput="{!c.handleOnChange}"
+             class="{! v.value.length gt 1 ? (v.class + ' dynamic-textarea slds-textarea') : (v.class + ' dynamic-textarea-empty slds-textarea') }" />
+  
+</aura:component>

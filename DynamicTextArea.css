@@ -1,0 +1,18 @@
+.THIS.dynamic-textarea {
+  resize: none;
+  overflow: hidden;
+  min-height: 60px;
+  width: 100%;
+  border: 1px solid rgb(221, 219, 218);
+}
+.THIS.dynamic-textarea:focus {
+  resize: vertical;
+}
+
+.THIS.dynamic-textarea-empty {
+  resize: none;
+  border: none;
+  overflow: auto;
+  min-height: 25px;
+  width: 100%;
+}
